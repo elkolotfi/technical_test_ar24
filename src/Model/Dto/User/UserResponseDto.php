@@ -1,7 +1,7 @@
 <?php
-namespace App\Model;
+namespace App\Model\Dto\User;
 
-class User
+class UserResponseDto extends UserDto
 {
     private $id;
 

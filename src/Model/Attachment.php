@@ -1,7 +1,8 @@
 <?php
 namespace App\Model;
 
-class User
+
+class Attachment
 {
     private $id;
 
@@ -20,5 +21,4 @@ class User
     {
         $this->id = $id;
     }
-
 }
