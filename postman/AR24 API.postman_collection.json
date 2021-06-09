@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "25ef9969-cbab-400a-a823-6eadb73c0b57",
+		"name": "AR24 API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"tawara\",\r\n    \"lastname\": \"sakamoto\",\r\n    \"email\": \"nihejiw238@jmpant.com\",\r\n    \"gender\": \"F\",\r\n    \"statut\": \"particulier\",\r\n    \"country\": \"FR\",\r\n    \"address1\": \"1 rue de la république\",\r\n    \"zipcode\": \"67000\",\r\n    \"city\": \"Strasbourg\",\r\n    \"notif_billing\": \"0\",\r\n    \"billing_email\": \"tawara9517@edmondpt.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user?email={{sender}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "{{sender}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attachment",
+			"item": [
+				{
+					"name": "Add Attachment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "56205",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/elkol/Pictures/pexels-photo-531880.jpeg"
+								},
+								{
+									"key": "file_name",
+									"value": "city.jpeg",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/attachment",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"attachment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mail",
+			"item": [
+				{
+					"name": "Send Mail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\": \"56205\",\r\n    \"to_lastname\": \"yiruma\",\r\n    \"to_firstname\": \"tamada\",\r\n    \"to_email\": \"{{receiver}}\",\r\n    \"dest_statut\": \"particulier\",\r\n    \"content\": \"Well, hello there!\",\r\n    \"attachments\": [\r\n        \"2584782\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mail/send",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mail",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Mail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/mail/read/119967",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mail",
+								"read",
+								"119967"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
